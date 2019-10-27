@@ -1,0 +1,11 @@
+.Todo {
+  margin: 5px;
+  padding: 10px;
+  background-color: rgba($color: #eca24c, $alpha: 0.9);
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  .completed {
+    text-decoration: line-through;
+  }
+}
