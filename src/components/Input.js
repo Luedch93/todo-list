@@ -18,8 +18,6 @@ const Input = ({ onAddTodo, onClickCompleted }) => {
     inputEl.current.focus();
   }
 
-  
-
   return (
     <div>
       <input
