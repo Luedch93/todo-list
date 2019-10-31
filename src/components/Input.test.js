@@ -26,8 +26,8 @@ describe('<Input />', () => {
     expect(wrapper.find('input')).toHaveLength(1);
   })
 
-  it('Must have a button', () => {
-    expect(wrapper.find('button')).toHaveLength(1);
+  it('Must have two buttons', () => {
+    expect(wrapper.find('button')).toHaveLength(2);
   })
 
   it('Must have a placeholder message', () => {
@@ -36,14 +36,14 @@ describe('<Input />', () => {
   
   it('Must execute a callback when click button', () => {
     const onAddTodo = jest.fn();
-    const otherWrapper = Enzyme.shallow(<Input onAddTodo={onAddTodo}></Input>)
-    otherWrapper.find('button').simulate('click')
+    const otherWrapper = Enzyme.mount(<Input onAddTodo={onAddTodo}></Input>)
+    otherWrapper.find('button').first().simulate('click')
     expect(onAddTodo).toHaveBeenCalledTimes(1)
   })
 
-  it('Must execute a callback when click button', () => {
+  it('Must execute a callback when press enter', () => {
     const onAddTodo = jest.fn();
-    const otherWrapper = Enzyme.shallow(<Input onAddTodo={onAddTodo}></Input>)
+    const otherWrapper = Enzyme.mount(<Input onAddTodo={onAddTodo}></Input>)
     otherWrapper.find('input').simulate('keypress', {key: 'Enter'})
     expect(onAddTodo).toHaveBeenCalledTimes(1)
   })

@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import './Todo.scss';
 
 const Todo = ({index, todo, onChangeSelected}) => {
 
   const handleCheckEvent = (e) => {
-
     onChangeSelected(e.target.checked, index)
   }
 
