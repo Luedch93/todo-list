@@ -19,18 +19,23 @@ const App = () => {
   }
 
   const handleChange = (selected, index) => {
-    setTodos(todos.map((todo, i) => {
-      if (i === index) {
-        return {...todo, selected}
-      }
-      return todo;
-    }))
+    setTodos(
+      todos.map((todo, i) => {
+        if (i === index) {
+          return { ...todo, selected }
+        }
+        return todo
+      })
+    )
   }
 
   return (
     <div id="App">
-      <h1>Todo App</h1>      
-      <Input onAddTodo={handleSaveTodo} onClickCompleted={clearAllCompletedTasks}></Input>
+      <h1>Todo App</h1>
+      <Input
+        onAddTodo={handleSaveTodo}
+        onClickCompleted={clearAllCompletedTasks}
+      ></Input>
       <TodoList todos={todos} onChangeSelected={handleChange}></TodoList>
     </div>
   )
