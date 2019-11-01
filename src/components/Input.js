@@ -2,20 +2,20 @@ import React, { useState, useRef } from 'react'
 
 const Input = ({ onAddTodo, onClickCompleted }) => {
   const [todo, setTodo] = useState('')
-  const inputEl = useRef(null);
+  const inputEl = useRef(null)
 
   const handleKeyPress = ({ key }) => {
     if (key == 'Enter') {
       onAddTodo({ name: todo, selected: false })
       setTodo('')
-      inputEl.current.focus();
+      inputEl.current.focus()
     }
   }
 
   const handleClickButton = () => {
     onAddTodo({ name: todo, selected: false })
-    setTodo('')   
-    inputEl.current.focus();
+    setTodo('')
+    inputEl.current.focus()
   }
 
   return (
@@ -29,12 +29,8 @@ const Input = ({ onAddTodo, onClickCompleted }) => {
         placeholder="Add a new Task"
         ref={inputEl}
       ></input>
-      <button onClick={handleClickButton}>
-        Add Todo
-      </button>
-      <button onClick={onClickCompleted}>
-        Clear Completed
-      </button>
+      <button onClick={handleClickButton}>Add Todo</button>
+      <button onClick={onClickCompleted}>Clear Completed</button>
     </div>
   )
 }

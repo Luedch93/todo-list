@@ -1,50 +1,52 @@
-import React from 'react';
+import React from 'react'
 
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Enzyme from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
-import Input from './Input';
+import Input from './Input'
 
-Enzyme.configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter() })
 
 describe('<Input />', () => {
-
-  let wrapper;
-  const setState = jest.fn();
-  const useStateSpy = jest.spyOn(React, 'useState');
-  useStateSpy.mockImplementation((init) => [init, setState])
+  let wrapper
+  const setState = jest.fn()
+  const useStateSpy = jest.spyOn(React, 'useState')
+  useStateSpy.mockImplementation(init => [init, setState])
 
   beforeEach(() => {
-    wrapper = Enzyme.shallow(<Input />);
+    wrapper = Enzyme.shallow(<Input />)
   })
 
   afterEach(() => {
-    jest.clearAllMocks();
+    jest.clearAllMocks()
   })
 
   it('Must have a input field', () => {
-    expect(wrapper.find('input')).toHaveLength(1);
+    expect(wrapper.find('input')).toHaveLength(1)
   })
 
   it('Must have two buttons', () => {
-    expect(wrapper.find('button')).toHaveLength(2);
+    expect(wrapper.find('button')).toHaveLength(2)
   })
 
   it('Must have a placeholder message', () => {
-    expect(wrapper.find('input').props().placeholder).toBe('Add a new Task');
+    expect(wrapper.find('input').props().placeholder).toBe('Add a new Task')
   })
-  
+
   it('Must execute a callback when click button', () => {
-    const onAddTodo = jest.fn();
+    const onAddTodo = jest.fn()
     const otherWrapper = Enzyme.mount(<Input onAddTodo={onAddTodo}></Input>)
-    otherWrapper.find('button').first().simulate('click')
+    otherWrapper
+      .find('button')
+      .first()
+      .simulate('click')
     expect(onAddTodo).toHaveBeenCalledTimes(1)
   })
 
   it('Must execute a callback when press enter', () => {
-    const onAddTodo = jest.fn();
+    const onAddTodo = jest.fn()
     const otherWrapper = Enzyme.mount(<Input onAddTodo={onAddTodo}></Input>)
-    otherWrapper.find('input').simulate('keypress', {key: 'Enter'})
+    otherWrapper.find('input').simulate('keypress', { key: 'Enter' })
     expect(onAddTodo).toHaveBeenCalledTimes(1)
   })
 })
