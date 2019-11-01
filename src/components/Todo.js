@@ -1,16 +1,19 @@
-import React from 'react';
+import React from 'react'
 
-import './Todo.scss';
+import './Todo.scss'
 
-const Todo = ({index, todo, onChangeSelected}) => {
-
-  const handleCheckEvent = (e) => {
+const Todo = ({ index, todo, onChangeSelected }) => {
+  const handleCheckEvent = e => {
     onChangeSelected(e.target.checked, index)
   }
 
   return (
     <div className="Todo">
-      <input type="checkbox" defaultChecked={todo.selected} onChange={handleCheckEvent}></input>  
+      <input
+        type="checkbox"
+        defaultChecked={todo.selected}
+        onChange={handleCheckEvent}
+      ></input>
       <span className={todo.selected ? 'completed' : ''}>{todo.name}</span>
     </div>
   )
