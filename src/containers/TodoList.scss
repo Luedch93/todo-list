@@ -1,0 +1,19 @@
+.TodoList {
+  margin-top: 15px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  flex-grow: 1;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  .no-data {
+    align-self: center;
+    margin: 20px;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgba($color: #eca24c, $alpha: 0.5);
+  }
+}
