@@ -15,8 +15,6 @@ const App = () => {
   }
 
   const clearAllCompletedTasks = () => {
-    console.log('clear completed')
-    debugger;
     setTodos(todos.filter(todo => !todo.selected))
   }
 
